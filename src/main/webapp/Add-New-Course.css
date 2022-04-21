@@ -1,0 +1,455 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 1334px;
+}
+
+.u-section-1 .u-text-1 {
+  margin: 40px auto 0 0;
+}
+
+.u-section-1 .u-list-1 {
+  width: 381px;
+  margin: 31px auto 0 0;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-gap: 0px 0px;
+  grid-template-columns: 50% 50%;
+  min-height: 111px;
+}
+
+.u-section-1 .u-list-item-1 {
+  box-shadow: 2px 0 0 0 rgba(0,0,0,0);
+  transition-duration: 0.5s;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding: 10px 0 0 10px;
+}
+
+.u-section-1 .u-btn-1 {
+  border-style: none none solid;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.u-section-1 .u-icon-1 {
+  color: rgb(0, 0, 0) !important;
+  font-size: 1.9376em;
+}
+
+.u-section-1 .u-list-item-2 {
+  box-shadow: 2px 0 0 0 rgba(0,0,0,0);
+  transition-duration: 0.5s;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 10px 0 0 10px;
+}
+
+.u-section-1 .u-btn-2 {
+  border-style: none none solid;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.u-section-1 .u-icon-2 {
+  font-size: 1.9376em;
+  background-image: none;
+  color: rgb(244, 67, 54) !important;
+}
+
+.u-section-1 .u-form-1 {
+  height: 1026px;
+  margin: 30px 267px 60px 0;
+}
+
+.u-section-1 .u-label-1 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-label-2 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-label-3 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-4 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-4 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-5 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-5 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-6 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-6 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-7 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-7 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-8 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-8 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-9 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-9 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-10 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-10 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-11 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-11 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-12 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-12 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-13 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-13 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-14 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-14 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+.u-section-1 .u-form-group-15 {
+  margin-left: 0;
+}
+
+.u-section-1 .u-label-15 {
+  width: 161px;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
+
+  .u-section-1 .u-btn-2 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-right: 67px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-btn-2 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .u-section-1 .u-form-1 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 50% 50%;
+    min-height: 118px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-list-1 {
+    width: 340px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    min-height: 110px;
+  }
+}
+
+.u-block-20fc-243:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-243:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-243:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-243:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-243:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-243.u-block-20fc-243.u-block-20fc-243.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-list-item-1,
+.u-section-1 .u-list-item-1:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-list-item-1.u-list-item-1.u-list-item-1:hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-list-item-1.u-list-item-1.u-list-item-1.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-list-item-2,
+.u-section-1 .u-list-item-2:before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-list-item-2.u-list-item-2.u-list-item-2:hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-list-item-2.u-list-item-2.u-list-item-2.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-label-9:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-label-9:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-label-9:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-label-9:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-label-9:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-label-9.u-label-9.u-label-9.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-label-11:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-label-11:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-label-11:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-label-11:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-label-11:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-label-11.u-label-11.u-label-11.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-10:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-form-group-10:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-form-group-10:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-10:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-10:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-10.u-form-group-10.u-form-group-10.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-12:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-form-group-12:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-form-group-12:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-12:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-12:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-12.u-form-group-12.u-form-group-12.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-14:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-form-group-14:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-form-group-14:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-14:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-form-group-14:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-form-group-14.u-form-group-14.u-form-group-14.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-input-15:not([data-block-selected]):not([data-cell-selected]),
+.u-section-1 .u-input-15:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-section-1 .u-input-15:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-input-15:not([data-block-selected]):not([data-cell-selected]).u-section-1 .u-input-15:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-section-1 .u-input-15.u-input-15.u-input-15.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-282:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-282:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-282:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-282:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-282:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-282.u-block-20fc-282.u-block-20fc-282.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-286:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-286:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-286:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-286:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-286:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-286.u-block-20fc-286.u-block-20fc-286.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-290:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-290:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-290:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-290:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-290:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-290.u-block-20fc-290.u-block-20fc-290.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-294:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-294:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-294:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-294:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-294:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-294.u-block-20fc-294.u-block-20fc-294.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-298:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-298:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-298:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-298:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-298:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-298.u-block-20fc-298.u-block-20fc-298.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-302:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-302:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-302:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-302:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-302:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-302.u-block-20fc-302.u-block-20fc-302.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-306:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-306:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-306:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-306:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-306:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-306.u-block-20fc-306.u-block-20fc-306.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-310:not([data-block-selected]):not([data-cell-selected]),
+.u-block-20fc-310:not([data-block-selected]):not([data-cell-selected]):before {
+  transition-property: fill, color, background-color, stroke-width, border-style, border-width, box-shadow, text-shadow, opacity, border-radius, stroke, border-color, font-size, font-style, font-weight, text-decoration, letter-spacing, transform, background-image, background-size, background-position;
+}
+
+.u-block-20fc-310:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-310:not([data-block-selected]):not([data-cell-selected]).u-block-20fc-310:not([data-block-selected]):not([data-cell-selected]):hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
+
+.u-block-20fc-310.u-block-20fc-310.u-block-20fc-310.hover {
+  box-shadow: 2px 2px 8px 0 rgba(128,128,128,1) !important;
+}
