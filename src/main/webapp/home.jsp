@@ -12,8 +12,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Home.css" media="screen">
-    <script class="u-script" type="text/javascript" src="cosmas.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="cosmas.js"></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js"></script>
     <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -77,7 +77,7 @@
             </div>
             <div class="u-align-left u-container-style u-hover-feature u-list-item u-repeater-item u-list-item-3" data-href="Permissions.html" data-page-id="847323172">
               <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span class="u-custom-item u-file-icon u-icon u-icon-3"><img src="images/16420971.png" alt=""></span>
-                <a href="https://nicepage.one" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-3">Permissions</a>
+                <a href="staff-requests.jsp?loggedIn=${loggedIn}&isLoggedIn=${isLoggedIn}" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-3">My Requests</a>
               </div>
             </div>
             <div class="u-container-style u-hover-feature u-list-item u-repeater-item u-list-item-4" data-href="Courses-Analysis.html" data-page-id="63236393">
@@ -87,7 +87,7 @@
             </div>
             <div class="u-container-style u-dialog-link u-hover-feature u-list-item u-repeater-item u-list-item-5" data-href="#sec-099c">
               <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5"><span class="u-custom-item u-file-icon u-icon u-icon-5"><img src="images/709579.png" alt=""></span>
-                <a href="https://nicepage.one" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-5">My Account ${loggedIn.userName} </a>
+                <a href="https://nicepage.one" class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-5">My Account ${loggedIn.userRole} </a>
               </div>
             </div>
             <div class="u-container-style u-hover-feature u-list-item u-repeater-item u-list-item-6">

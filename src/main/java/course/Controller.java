@@ -299,7 +299,7 @@ public class Controller extends HttpServlet {
 		String coursePrerequisite = request.getParameter("coursePrerequisite");
 		String courseLearningOutcomes = request.getParameter("courseLearningOutcomes");
 		String courseTransSkills = request.getParameter("courseTransSkills");
-		String courseSLTDist = request.getParameter("courseSLTDist");
+		String courseSLTDist = request.getParameter("courseSLTDist");;
 		String courseSpecialReq = request.getParameter("courseSpecialReq");
 		String courseReferences = request.getParameter("courseReferences");
 		String courseOtherInfo = request.getParameter("courseOtherInfo");

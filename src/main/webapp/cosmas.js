@@ -1,22 +1,24 @@
 /**
  * 
  */
- 
 
 
-function addCourseOK(){
+
+
+
+function addCourseOK() {
 	closeCourseFields();
 	document.getElementById("add-course-submit").style.display = "none";
 	document.getElementById("add-course-OK").style.display = "block";
 	setTimeout(hideAddCourseOK, 3000);
 }
 
-function hideAddCourseOK(){
+function hideAddCourseOK() {
 	document.getElementById("add-course-OK").style.display = "none";
 }
 
-document.getElementById("edit-course-submit").addEventListener("click", 
-	function editCourseOK(){
+document.getElementById("edit-course-submit").addEventListener("click",
+	function editCourseOK() {
 		closeCourseFields();
 		document.getElementById("edit-course-submit").style.display = "none";
 		document.getElementById("edit-course-ok").style.display = "block";
@@ -24,7 +26,7 @@ document.getElementById("edit-course-submit").addEventListener("click",
 	}
 );
 
-function hideEditCourseOK(){
+function hideEditCourseOK() {
 	document.getElementById("edit-course-ok").style.display = "none";
 }
 

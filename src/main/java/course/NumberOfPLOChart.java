@@ -13,10 +13,9 @@ import org.jfree.data.general.PieDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 
-
-public class ChartTest extends ApplicationFrame {
+public class NumberOfPLOChart extends ApplicationFrame {
    
-   public ChartTest( String title ) {
+   public NumberOfPLOChart( String title ) {
       super( title ); 
       setContentPane(createDemoPanel( ));
    }
@@ -63,7 +62,7 @@ public class ChartTest extends ApplicationFrame {
    }
 
    public static void main( String[ ] args ) {
-	  ChartTest demo = new ChartTest( "Course Analysis" );  
+	  NumberOfPLOChart demo = new NumberOfPLOChart( "Course Analysis" );  
       demo.setSize( 560 , 367 );    
       RefineryUtilities.centerFrameOnScreen( demo );    
       demo.setVisible( true ); 

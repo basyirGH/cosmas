@@ -134,14 +134,11 @@ public class DAO {
 	    	ResultSet rs = ps.executeQuery();
 	    	User user = new User();
 	    	while (rs.next()) {
+	    		user.setUserID(rs.getString("USER_ID"));
 	    		user.setUserEmail(rs.getString("USER_EMAIL"));
 	    		user.setUserPassword(rs.getString("USER_PASSWORD"));
 	    		user.setUserName(rs.getString("USER_NAME"));
-	    		/*customer.setPhone(rs.getString("CUSTOMER_PHONE"));
-	    		customer.setFullAddress(rs.getString("CUSTOMER_ADDR"));
-	    		customer.setPostcode(rs.getString("CUSTOMER_PCODE"));
-	    		customer.setCity(rs.getString("CUSTOMER_CITY"));
-	    		customer.setState(rs.getString("CUSTOMER_STATE"));*/
+	    		user.setUserRole(rs.getString("USER_ROLE"));
 	    	}
 	    	return user;
     	} catch (SQLException e) {

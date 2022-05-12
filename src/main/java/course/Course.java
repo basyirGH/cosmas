@@ -24,6 +24,7 @@ public class Course {
 	private ArrayList<String> MQFLOforPLO = new ArrayList<String>();
 	private String courseTransSkills;
 	private String courseSLTDist;
+	private ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> courseSLTDist2;
 	private String courseSpecialReq;
 	private String courseReferences;
 	private String courseOtherInfo;
@@ -179,6 +180,14 @@ public class Course {
 
 	public void setCourseSLTDist(String courseSLTDist) {
 		this.courseSLTDist = courseSLTDist;
+	}
+
+	public ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> getCourseSLTDist2() {
+		return courseSLTDist2;
+	}
+
+	public void setCourseSLTDist2(ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> courseSLTDist2) {
+		this.courseSLTDist2 = courseSLTDist2;
 	}
 
 	public String getCourseSpecialReq() {

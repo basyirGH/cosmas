@@ -81,7 +81,7 @@ public class Controller extends HttpServlet {
         user.setUserName(userName);
         user.setUserRole(userRole);
         user.setSendEmail("YES");
-        user.setUserID("U0006");
+        user.setUserID("U0008");
        
         DAO dao = new DAO();
         dao.add(user);
@@ -120,6 +120,7 @@ public class Controller extends HttpServlet {
     	if (request.getSession() != null && request.getSession().getAttribute("isLoggedIn").equals(true)) {
     		DAO dao = new DAO();
     		User user = dao.getAttributes(request.getSession());
+    		System.out.println("user role at controller: "+user.getUserRole());
     		request.getSession().setAttribute("loggedIn", user);
     		//System.out.println("email: " + user.getUserEmail() + customer.getPostcode());
     		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");

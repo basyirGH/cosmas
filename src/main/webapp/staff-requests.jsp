@@ -10,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Courses</title>
+<title>Requests</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Courses.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -56,7 +56,9 @@
 <meta property="og:type" content="website">
 </head>
 <body class="u-body">
-
+<form action="${request.contextPath}/COSMAS/ControllerRequest" method="post">
+	<input type="submit" name="command" value="Add Request">
+</form>
 	<header class="u-clearfix u-header u-header" id="sec-2657">
 		<div class="u-clearfix u-sheet u-sheet-1">
 			<a href="https://nicepage.com" class="u-image u-logo u-image-1"
@@ -126,7 +128,7 @@
 				<h5 style="color: #5085BA" class="u-text u-text-default u-text-1">
 					<a><input type="submit" name="command" value="Home"
 						class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
-					<span style="color: black"> > Courses </span>
+					<span style="color: black"> > Requests </span>
 				</h5>
 			</form>
 			<h4 class="u-text u-text-default u-text-2">
@@ -134,7 +136,7 @@
 					class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1"
 					href="#" data-page-id="13610887"><span
 					class="u-file-icon u-icon u-icon-1"><img
-						src="images/1237946.png" alt=""></span>&nbsp; &nbsp;Add New Course
+						src="images/1237946.png" alt=""></span>&nbsp; &nbsp;Add New Request
 				</a>
 			</h4>
 			<p class="u-text u-text-default u-text-2" id="notAllowedMessage"></p>
@@ -145,18 +147,17 @@
 			<div class="u-expanded-width u-table u-table-responsive u-table-1">
 				<table class="u-table-entity u-table-entity-1">
 					<colgroup>
-						<col width="7.3%">
+						<col width="10%">
 						<col width="42.8%">
 						<col width="25%">
 						<col width="24.900000000000006%">
 					</colgroup>
 					<thead class="u-black u-table-header u-table-header-1">
 						<tr style="height: 26px;">
-							<th class="u-border-1 u-border-black u-table-cell"></th>
-							<th class="u-border-1 u-border-black u-table-cell">Name</th>
-							<th class="u-border-1 u-border-black u-table-cell">Code</th>
-							<th class="u-border-1 u-border-black u-table-cell">Credit
-								Value</th>
+							<th class="u-border-1 u-border-black u-table-cell">Request ID</th>
+							<th class="u-border-1 u-border-black u-table-cell">Action</th>
+							<th class="u-border-1 u-border-black u-table-cell">Creation Date</th>
+							<th class="u-border-1 u-border-black u-table-cell">Status</th>
 						</tr>
 					</thead>
 					<tbody class="u-table-body">
