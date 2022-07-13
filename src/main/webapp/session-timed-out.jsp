@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
 <head>
@@ -8,7 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Choose File</title>
+<title>Add New Course</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Add-New-Course.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -29,12 +30,17 @@
 		"name": "",
 		"logo": "images/templogo2.jpg"
 }
+		
+		
+		
 </script>
+
+
 <meta name="theme-color" content="#478ac9">
 <meta property="og:title" content="Add New Course">
 <meta property="og:type" content="website">
 <style>
-.attribute-8-table {
+.attribute-8-9-table {
 	table-layout: auto;
 	column-width: 100%;
 	display: block;
@@ -45,6 +51,10 @@
 
 .first-columns-attribute8 {
 	padding: 5px;
+}
+
+.toslet-collapsable, .cas-collapsable, .fas-collapsable  {
+	display: none;
 }
 </style>
 </head>
@@ -111,52 +121,7 @@
 			</nav>
 		</div>
 	</header>
-	<section style="background-color: #ffffff"
-		class="u-align-left u-clearfix u-grey-15 u-section-1" id="sec-5959">
-		<div class="u-clearfix u-sheet u-sheet-1">
-			<form action="${request.contextPath}/COSMAS/user" method="post">
-				<h5 style="color: #5085BA" class="u-text u-text-default u-text-1">
-					<a><input type="submit" name="command" value="Home"
-						class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
-					<span style="color: black"> > Add New Course > Extract from
-						Excel </span>
-				</h5>
-			</form>
-
-			<div
-				style="padding: 0px 30px 30px 30px; border: 1px solid black; border-radius: 25px"
-				class="u-form u-form-1">
-				
-				<ul>
-					<li>The server can only extract from .xlsx files. Please
-						ensure the correct extension is chosen before uploading.
-					<li>It is strongly advised that your file uses the
-						verified/latest Excel template. To get a verified syllabus
-						information template, refer Academics module in <a target="_blank"
-						href="https://mynemo.umt.edu.my/">My Nemo</a> to obtain one. Using
-						older/faculty-focused versions might cause more missing values.
-					</li>
-
-					<li>Be aware that not all values will be extracted. Some might
-						be missing because of various reasons, such as the template is incorrectly structured, the server could not
-						find matching attributes (e.g., Course Name), or certain cells are shifted. Please
-						manually correct them to ensure accuracy.</li>
-				</ul>
-				<hr>
-				<p>Upload one syllabus information file:</p>
-				<div class="u-form u-form-1">
-					<form
-						action="${request.contextPath}/COSMAS/uploader?courseCodeOld=${courseCodeOld}"
-						method="POST" enctype="multipart/form-data">
-						<input type="file" name="file-excel" /> <input type="submit"
-							value="Upload File" />
-					</form>
-				</div>
-			</div>
-		</div>
-
-	</section>
-
+	
 	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
 		id="sec-835c">
 		<div class="u-clearfix u-sheet u-sheet-1">

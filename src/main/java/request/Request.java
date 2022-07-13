@@ -1,15 +1,14 @@
 package request;
-import java.sql.Date;
+import java.sql.Timestamp;
 import user.*;
 import course.*;
-import attribute.*;
 
-public class Request {
+public class Request implements java.io.Serializable {
 
 	private String requestId;
 	private String requestAction;
 	private String requestMessage;
-	private Date requestMadeOn;
+	private Timestamp requestMadeOn;
 	private String requestStatus;
 	private String userId;
 	private String courseCode;
@@ -34,10 +33,10 @@ public class Request {
 	public void setRequestMessage(String requestMessage) {
 		this.requestMessage = requestMessage;
 	}
-	public Date getRequestMadeOn() {
+	public Timestamp getRequestMadeOn() {
 		return requestMadeOn;
 	}
-	public void setRequestMadeOn(Date requestMadeOn) {
+	public void setRequestMadeOn(Timestamp requestMadeOn) {
 		this.requestMadeOn = requestMadeOn;
 	}
 	public String getRequestStatus() {

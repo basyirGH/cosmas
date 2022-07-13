@@ -10,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Requests</title>
+<title>Requests - HOP Mode</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Courses.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -40,15 +40,11 @@
 			document.getElementById("notAllowedMessage").innerHTML = message;
 		}
 	}
-	
-
 </script>
 <style>
-
 #notAllowedMessage {
 	color: orange;
 }
-
 </style>
 
 <meta name="theme-color" content="#478ac9">
@@ -56,9 +52,7 @@
 <meta property="og:type" content="website">
 </head>
 <body class="u-body">
-<form action="${request.contextPath}/COSMAS/ControllerRequest" method="post">
-	<input type="submit" name="command" value="Add Request">
-</form>
+
 	<header class="u-clearfix u-header u-header" id="sec-2657">
 		<div class="u-clearfix u-sheet u-sheet-1">
 			<a href="https://nicepage.com" class="u-image u-logo u-image-1"
@@ -123,28 +117,23 @@
 	</header>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-5ad4">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			<form action="${request.contextPath}/COSMAS/ControllerUser"
-				method="post">
+			<form action="${request.contextPath}/COSMAS/user" method="post">
 				<h5 style="color: #5085BA" class="u-text u-text-default u-text-1">
 					<a><input type="submit" name="command" value="Home"
 						class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
 					<span style="color: black"> > Requests </span>
 				</h5>
 			</form>
-			<h4 class="u-text u-text-default u-text-2">
-				<a onclick="javascript:checkUserRole()"
-					class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1"
-					href="#" data-page-id="13610887"><span
-					class="u-file-icon u-icon u-icon-1"><img
-						src="images/1237946.png" alt=""></span>&nbsp; &nbsp;Add New Request
-				</a>
-			</h4>
+			<h4 class="u-text u-text-default u-text-2">Requests - HOP Mode</h4>
+
 			<p class="u-text u-text-default u-text-2" id="notAllowedMessage"></p>
 			<h3 class="u-text u-text-default u-text-3">
 				<span class="u-file-icon u-icon u-icon-2"><img
 					src="images/482631.png" alt=""></span>&nbsp;Ctrl + F
 			</h3>
 			<div class="u-expanded-width u-table u-table-responsive u-table-1">
+				<p class="u-text u-text-default u-text-2">Showing the latest
+					requests</p>
 				<table class="u-table-entity u-table-entity-1">
 					<colgroup>
 						<col width="10%">
@@ -154,34 +143,34 @@
 					</colgroup>
 					<thead class="u-black u-table-header u-table-header-1">
 						<tr style="height: 26px;">
-							<th class="u-border-1 u-border-black u-table-cell">Request ID</th>
+							<th class="u-border-1 u-border-black u-table-cell">Request
+								ID</th>
 							<th class="u-border-1 u-border-black u-table-cell">Action</th>
-							<th class="u-border-1 u-border-black u-table-cell">Creation Date</th>
+							<th class="u-border-1 u-border-black u-table-cell">Message</th>
+							<th class="u-border-1 u-border-black u-table-cell">Submitted
+								By</th>
+							<th class="u-border-1 u-border-black u-table-cell">Creation
+								Date</th>
 							<th class="u-border-1 u-border-black u-table-cell">Status</th>
 						</tr>
 					</thead>
 					<tbody class="u-table-body">
-						<c:forEach items="${courseList}" var="course">
+						<c:forEach items="${requestList}" var="req">
 							<tr style="height: 75px;">
 								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-								</td>
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${req.requestId}</td>
 								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-									<form id="view-course-form"
-										action="${request.contextPath}/COSMAS/ControllerCourse"
-										method="post">
-										<input id="submit-course-code" type="hidden"
-											value="${course.courseCode}" name="courseCode"> <a><input
-											id="submit-view-course" type="submit"
-											value="${course.courseName}" name="command"
-											class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
-									</form>
-								</td>
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${req.requestAction}
+									for ${req.courseCode}</td>
 								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${course.courseCode}</td>
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${req.requestMessage}</td>
 								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${course.courseCredit}</td>
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${req.userId}</td>
+								<td
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${req.requestMadeOn}</td>
+								<td
+									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell"><a
+									href="${request.contextPath}/COSMAS/request?command=update-request-status&requestId=${req.requestId}">${req.requestStatus}</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

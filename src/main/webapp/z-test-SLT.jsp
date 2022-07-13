@@ -63,17 +63,10 @@
 	</form>
 
 	<script>
-		
-		var i = 0;
-		
+				
 		function auto_grow(element) {
 			element.style.height = "5px";
 			element.style.height = (element.scrollHeight) + "px";
-		}
-		
-		function addRow() {
-			
-			
 		}
 		
 	</script>

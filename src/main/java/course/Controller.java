@@ -11,16 +11,21 @@
 
 package course;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +36,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -38,10 +44,13 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
+import request.Request;
+import user.User;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet("/ControllerCourse")
+@WebServlet("/course")
 @MultipartConfig
 
 public class Controller extends HttpServlet {
@@ -106,6 +115,9 @@ public class Controller extends HttpServlet {
 					goToFileChooser(request, response);
 					break;
 
+				case "getCourseVisView":
+					getPageForCourseVis(request, response);
+
 				default:
 					DAO dao = new DAO();
 					for (Course c : dao.getList()) {
@@ -122,8 +134,82 @@ public class Controller extends HttpServlet {
 				}
 			} catch (SQLException e) {
 				throw new SQLException(e);
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+				System.out.println(
+						"Method invoked by command below returned null. \n If there is no command, please make sure you've logged in."
+								+ "\ncommand: " + command);
 			}
 		}
+	}
+
+	protected void getPageForCourseVis(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+
+		DAO dao = new DAO();
+		List<Course> courseList = dao.getList();
+
+		request.getSession().setAttribute("courseList", courseList);
+		request.getRequestDispatcher("analysis.jsp").forward(request, response);
+	}
+
+	protected boolean idIsTaken(String id) throws SQLException, ServletException, IOException {
+
+		DAO dao = new DAO();
+		List<String> tosletIdList = dao.getAllTsltId();
+		DAO dao2 = new DAO();
+		List<String> casletIdList = dao2.getAllCasletId();
+		DAO dao3 = new DAO();
+		List<String> fasLetIdList = dao3.getAllFasletId();
+
+		for (String e : casletIdList) {
+			if (e.equals(id)) {
+				return true;
+			}
+		}
+
+		for (String e : tosletIdList) {
+			if (e.equals(id)) {
+				return true;
+			}
+		}
+
+		for (String e : fasLetIdList) {
+			if (e.equals(id)) {
+				return true;
+			}
+		}
+
+		return false;
+
+	}
+
+	protected String generateRandom(int n) {
+		String NumericString = "0123456789";
+		StringBuilder sb = new StringBuilder(n);
+		for (int i = 0; i < n; i++) {
+
+			// generate a random number between
+			// 0 to AlphaNumericString variable length
+			int index = (int) (NumericString.length() * Math.random());
+
+			// add Character one by one in end of sb
+			sb.append(NumericString.charAt(index));
+		}
+
+		return sb.toString();
+	}
+
+	protected String getNewId(String prefix, int n) throws SQLException, ServletException, IOException {
+
+		String id = prefix.concat(generateRandom(n));
+
+		while (idIsTaken(id)) {
+			id = id.concat(generateRandom(n));
+		}
+
+		return id;
+
 	}
 
 	protected void addCourse(HttpServletRequest request, HttpServletResponse response)
@@ -210,6 +296,82 @@ public class Controller extends HttpServlet {
 		course.setAssessmentMethodsForCLO3(assessmentMethodsForCLO3);
 		course.setMQFLOforPLO(MQFLOforPLOArrayList);
 
+		// TOPIC and SLT DIST
+
+		ArrayList<TopicAndSLT> tosletList = new ArrayList<TopicAndSLT>();
+
+		for (int i = 0; i < 20; i++) {
+
+			String[] tosletArray;
+			TopicAndSLT toslet = new TopicAndSLT();
+
+			try {
+				tosletArray = (request.getParameterValues("topic" + (i + 1)));
+				if (!tosletArray[0].equals("")) {
+					toslet.setOutline(tosletArray[0]);
+					toslet.setClo(tosletArray[1]);
+					toslet.setPlhour(Integer.valueOf(tosletArray[2]));
+					toslet.setPthour(Integer.valueOf(tosletArray[3]));
+					toslet.setPphour(Integer.valueOf(tosletArray[4]));
+					toslet.setPohour(Integer.valueOf(tosletArray[5]));
+					toslet.setOlhour(Integer.valueOf(tosletArray[6]));
+					toslet.setOthour(Integer.valueOf(tosletArray[7]));
+					toslet.setOphour(Integer.valueOf(tosletArray[8]));
+					toslet.setOohour(Integer.valueOf(tosletArray[9]));
+					toslet.setNf2fhour(Integer.valueOf(tosletArray[10]));
+					toslet.setTsltId(getNewId("toslet-", 7));
+					tosletList.add(toslet);
+				} else {
+					break;
+				}
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+				break;
+			}
+
+		}
+
+		// CA+FA and SLT DIST
+
+		ArrayList<CASAndSLT> casletList = new ArrayList<CASAndSLT>();
+		ArrayList<FASAndSLT> fasletList = new ArrayList<FASAndSLT>();
+
+		for (int i = 0; i < 20; i++) {
+
+			CASAndSLT caslet = new CASAndSLT();
+			FASAndSLT faslet = new FASAndSLT();
+
+			try {
+				String[] casArray = (request.getParameterValues("cas" + (i + 1)));
+				String[] fasArray = (request.getParameterValues("fas" + (i + 1)));
+
+				if (!casArray[0].equals("") || !fasArray[0].equals("")) {
+					caslet.setAsst(casArray[0]);
+					caslet.setWeightage(casArray[1]);
+					caslet.setPhour(casArray[2]);
+					caslet.setOhour(casArray[3]);
+					caslet.setNf2fhour(casArray[4]);
+					caslet.setAsstId(getNewId("caslet-", 7));
+
+					faslet.setAsst(fasArray[0]);
+					faslet.setWeightage(fasArray[1]);
+					faslet.setPhour(fasArray[2]);
+					faslet.setOhour(fasArray[3]);
+					faslet.setNf2fhour(fasArray[4]);
+					faslet.setAsstId(getNewId("faslet-", 7));
+
+					casletList.add(caslet);
+					fasletList.add(faslet);
+				} else {
+					break;
+				}
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+				break;
+			}
+		}
+		// Finally DAO to add.
+
 		DAO dao = new DAO();
 
 		course.setCourseAcadStaff(courseAcadStaff);
@@ -223,17 +385,53 @@ public class Controller extends HttpServlet {
 		course.setCourseLearningOutcomes(courseLearningOutcomes);
 		course.setCourseReferences(courseReferences);
 		course.setCourseSemYearOffered(courseSemYearOffered);
-		course.setCourseSLTDist(courseSLTDist);
+		course.setCourseSLTDist2(tosletList);
+		course.setCourseCasletDist(casletList);
+		course.setCourseFasletDist(fasletList);
 		course.setCourseSpecialReq(courseSpecialReq);
 		course.setCourseSynopsis(courseSynopsis);
 		course.setCourseTransSkills(courseTransSkills);
 
-		dao.add(course);
-		try {
-			TimeUnit.SECONDS.sleep(3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		// to sum up toslet
+		int totalToslet = 0;
+		for (TopicAndSLT e : tosletList) {
+			totalToslet = totalToslet + (int) Math.round(Double.valueOf(e.getPlhour()))
+					+ (int) Math.round(Double.valueOf(e.getPthour())) + (int) Math.round(Double.valueOf(e.getPphour()))
+					+ (int) Math.round(Double.valueOf(e.getPohour())) + (int) Math.round(Double.valueOf(e.getOlhour()))
+					+ (int) Math.round(Double.valueOf(e.getOthour())) + (int) Math.round(Double.valueOf(e.getOphour()))
+					+ (int) Math.round(Double.valueOf(e.getOohour()))
+					+ (int) Math.round(Double.valueOf(e.getNf2fhour()));
+
 		}
+		course.setTotalToslet(totalToslet);
+
+		// to sum up caslet
+		int totalCaslet = 0;
+		for (CASAndSLT e : casletList) {
+			totalCaslet = totalCaslet + (int) Math.round(Double.valueOf(e.getPhour()))
+					+ (int) Math.round(Double.valueOf(e.getOhour()))
+					+ (int) Math.round(Double.valueOf(e.getNf2fhour()));
+		}
+		course.setTotalCaslet(totalCaslet);
+
+		// to sum up faslet
+		int totalFaslet = 0;
+		for (FASAndSLT e : fasletList) {
+			totalFaslet = totalFaslet + (int) Math.round(Double.valueOf(e.getPhour()))
+					+ (int) Math.round(Double.valueOf(e.getOhour()))
+					+ (int) Math.round(Double.valueOf(e.getNf2fhour()));
+		}
+		course.setTotalFaslet(totalFaslet);
+
+		int grandTotalSLT = totalToslet + totalCaslet + totalFaslet;
+		course.setGrandTotalSLT(grandTotalSLT);
+
+		System.out.println(course.getCourseName() + "'s total toslet is: " + course.getTotalToslet());
+		System.out.println(course.getCourseName() + "'s total caslet is: " + course.getTotalCaslet());
+		System.out.println(course.getCourseName() + "'s total faslet is: " + course.getTotalFaslet());
+		System.out.println(course.getCourseName() + "'s grand total SLT is: " + course.getGrandTotalSLT());
+
+		dao.add(course);
 		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 		rd.forward(request, response);
 	}
@@ -257,15 +455,20 @@ public class Controller extends HttpServlet {
 	}
 
 	protected void getCourseView(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, SQLException {
+			throws ServletException, IOException, SQLException, NullPointerException {
 
+		User user = (User) request.getSession().getAttribute("loggedIn");
+		List<Request> requestList = new ArrayList<Request>();
 		String courseCode = request.getParameter("courseCode");
-		System.out.println("test receive course code from choosing a course from course list: " + courseCode);
-		DAO dao = new DAO();
-		Course course = dao.getCourse(courseCode);
-		System.out.println("test receive checkedTrue at controller: " + course.getCourseCLOPLOMapping());
+
+		DAO dao1 = new DAO();
+		Course course = dao1.getCourse(courseCode);
+
 		request.getSession().setAttribute("course", course);
 		request.getSession().setAttribute("courseCodeOld", courseCode);
+		request.getSession().setAttribute("requestList", requestList);
+		System.out.println("test receive faslet at controller: " + course.getTotalFaslet());
+
 		RequestDispatcher rd = request.getRequestDispatcher("view-course.jsp");
 		rd.forward(request, response);
 	}
@@ -299,7 +502,7 @@ public class Controller extends HttpServlet {
 		String coursePrerequisite = request.getParameter("coursePrerequisite");
 		String courseLearningOutcomes = request.getParameter("courseLearningOutcomes");
 		String courseTransSkills = request.getParameter("courseTransSkills");
-		String courseSLTDist = request.getParameter("courseSLTDist");;
+		// String courseSLTDist = request.getParameter("courseSLTDist");
 		String courseSpecialReq = request.getParameter("courseSpecialReq");
 		String courseReferences = request.getParameter("courseReferences");
 		String courseOtherInfo = request.getParameter("courseOtherInfo");
@@ -359,6 +562,72 @@ public class Controller extends HttpServlet {
 			System.out.println("checked MQFLOforPLOArrayList: " + s);
 		}
 
+		// TOPIC AND SLT
+
+		ArrayList<TopicAndSLT> tosletList = new ArrayList<TopicAndSLT>();
+		String[] tosletArray = null;
+		tosletArray = (request.getParameterValues("topic" + ("1")));
+		System.out.println("toslet test at controller: " + Arrays.toString(tosletArray));
+
+		for (int i = 0; i < 20; i++) {
+
+			TopicAndSLT toslet = new TopicAndSLT();
+			tosletArray = (request.getParameterValues("topic" + (i + 1)));
+
+			if (!tosletArray[0].equals("")) {
+				System.out.println("reading toslet at topic " + (i + 1));
+				toslet.setOutline(tosletArray[0]);
+				toslet.setClo(tosletArray[1]);
+				toslet.setPlhour(Integer.valueOf(tosletArray[2]));
+				toslet.setPthour(Integer.valueOf(tosletArray[3]));
+				toslet.setPphour(Integer.valueOf(tosletArray[4]));
+				toslet.setPohour(Integer.valueOf(tosletArray[5]));
+				toslet.setOlhour(Integer.valueOf(tosletArray[6]));
+				toslet.setOthour(Integer.valueOf(tosletArray[7]));
+				toslet.setOphour(Integer.valueOf(tosletArray[8]));
+				toslet.setOohour(Integer.valueOf(tosletArray[9]));
+				toslet.setNf2fhour(Integer.valueOf(tosletArray[10]));
+				toslet.setTsltId(getNewId("toslet-", 7));
+				tosletList.add(toslet);
+			} else {
+				break;
+			}
+		}
+
+		// CA AND SLT
+
+		ArrayList<CASAndSLT> casletList = new ArrayList<CASAndSLT>();
+		ArrayList<FASAndSLT> fasletList = new ArrayList<FASAndSLT>();
+
+		for (int i = 0; i < 5; i++) {
+
+			CASAndSLT caslet = new CASAndSLT();
+			FASAndSLT faslet = new FASAndSLT();
+			String[] casArray = (request.getParameterValues("cas" + (i + 1)));
+			String[] fasArray = (request.getParameterValues("fas" + (i + 1)));
+
+			if (!casArray[0].equals("") || !fasArray[0].equals("")) {
+				caslet.setAsst(casArray[0]);
+				caslet.setWeightage(casArray[1]);
+				caslet.setPhour(casArray[2]);
+				caslet.setOhour(casArray[3]);
+				caslet.setNf2fhour(casArray[4]);
+				caslet.setAsstId(getNewId("caslet-", 7));
+
+				faslet.setAsst(fasArray[0]);
+				faslet.setWeightage(fasArray[1]);
+				faslet.setPhour(fasArray[2]);
+				faslet.setOhour(fasArray[3]);
+				faslet.setNf2fhour(fasArray[4]);
+				faslet.setAsstId(getNewId("faslet-", 7));
+
+				casletList.add(caslet);
+				fasletList.add(faslet);
+			} else {
+				break;
+			}
+		}
+
 		Course courseEdit = new Course();
 		courseEdit.setCourseAcadStaff(courseAcadStaff);
 		courseEdit.setCourseClassification(courseClassification);
@@ -371,7 +640,9 @@ public class Controller extends HttpServlet {
 		courseEdit.setCourseLearningOutcomes(courseLearningOutcomes);
 		courseEdit.setCourseReferences(courseReferences);
 		courseEdit.setCourseSemYearOffered(courseSemYearOffered);
-		courseEdit.setCourseSLTDist(courseSLTDist);
+		courseEdit.setCourseSLTDist2(tosletList);
+		courseEdit.setCourseCasletDist(casletList);
+		courseEdit.setCourseFasletDist(fasletList);
 		courseEdit.setCourseSpecialReq(courseSpecialReq);
 		courseEdit.setCourseSynopsis(courseSynopsis);
 		courseEdit.setCourseTransSkills(courseTransSkills);

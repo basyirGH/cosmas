@@ -10,10 +10,8 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>Log In</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Log-In.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link rel="stylesheet" type="text/css" href="nicepage.css" media="screen">
+<link rel="stylesheet" type="text/css" href="Log-In.css" media="screen">
     <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -65,7 +63,7 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-default u-text-1">Log In</h3>
         <div class="u-align-center u-form u-form-1">
-          <form action="${request.contextPath}/COSMAS/ControllerUser" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+          <form action="${request.contextPath}/COSMAS/user" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
             <div class="u-form-email u-form-group">
               <label for="email-047e" class="u-label">Email Address</label>
               <input type="email" placeholder="Enter a valid email address" id="email-047e" name="userEmail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
@@ -76,6 +74,7 @@
             </div>
             <div class="u-align-left u-form-group u-form-submit">
               <input type="submit" value="Log In" name="command" class="u-btn u-btn-submit u-button-style">
+              <a href="sign-up.jsp">Sign Up Instead</a>
             </div>
             <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
             <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
@@ -84,10 +83,10 @@
         </div>
       </div>
     </section>
+    </body>
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-835c"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-default u-text-variant u-text-1">MOHAMAD BASYIR BIN ZAINUDDIN</p>
       </div></footer>
    
-  </body>
 </html>

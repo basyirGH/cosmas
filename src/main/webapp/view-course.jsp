@@ -19,6 +19,7 @@
 <script class="u-script" type="text/javascript" src="cosmas.js" defer=""></script>
 <script class="u-script" type="text/javascript"
 	src="attribute-8-mapping.js" defer=""></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -32,6 +33,7 @@
 		"logo": "images/templogo2.jpg"
 }
 </script>
+
 <style>
 .attribute-8-9-table {
 	table-layout: auto;
@@ -46,8 +48,14 @@
 	padding: 5px;
 }
 
-#notAllowedMessage {
-	color: orange;
+.toslet-collapsable, .cas-collapsable, .fas-collapsable {
+	display: none;
+	#
+	notAllowedMessage
+	{
+	color
+	:
+	orange;
 }
 
 @charset "ISO-8859-1";
@@ -163,8 +171,7 @@
 	<section style="background-color: #ffffff"
 		class="u-align-left u-clearfix u-grey-15 u-section-1" id="sec-5959">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			<form action="${request.contextPath}/COSMAS/ControllerUser"
-				method="post">
+			<form action="${request.contextPath}/COSMAS/user" method="post">
 				<h5 style="color: #5085BA" class="u-text u-text-default u-text-1">
 					<a><input type="submit" name="command" value="Home"
 						class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
@@ -180,7 +187,7 @@
 						<div
 							class="u-container-layout u-similar-container u-container-layout-1">
 							<form id="edit-course"
-								action="${request.contextPath}/COSMAS/ControllerCourse">
+								action="${request.contextPath}/COSMAS/course">
 								<input type="hidden" value="${course.courseCode}"
 									name="courseCode"> <input type="hidden"
 									value="${courseCodeOld}" name="courseCodeOld"> <a
@@ -200,7 +207,7 @@
 						<div
 							class="u-container-layout u-similar-container u-container-layout-2">
 							<form id="delete-course"
-								action="${request.contextPath}/COSMAS/ControllerCourse">
+								action="${request.contextPath}/COSMAS/course">
 								<input type="hidden" value="${course.courseCode}"
 									name="courseCode"> <a onclick="checkUserRole()"
 									class="u-align-center u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-2"><span
@@ -248,8 +255,7 @@
 			</div>
 			<p class="u-text u-text-default u-text-2" id="notAllowedMessage"></p>
 			<div class="u-form u-form-1">
-				<form action="${request.contextPath}/COSMAS/ControllerCourse"
-					method="POST"
+				<form action="${request.contextPath}/COSMAS/course" method="POST"
 					class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
 					source="custom" name="form" style="padding: 10px;">
 					<div class="u-form-group u-form-name u-label-left">
@@ -341,23 +347,23 @@
 							<tr>
 								<td class="first-columns-attribute">CLO1</td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO1" disabled="disabled" /></td>
+									id="CLO1forPLO01" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO2" disabled="disabled" /></td>
+									id="CLO1forPLO02" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO3" disabled="disabled" /></td>
+									id="CLO1forPLO03" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO4" disabled="disabled" /></td>
+									id="CLO1forPLO04" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO5" disabled="disabled" /></td>
+									id="CLO1forPLO05" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO6" disabled="disabled" /></td>
+									id="CLO1forPLO06" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO7" disabled="disabled" /></td>
+									id="CLO1forPLO07" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO8" disabled="disabled" /></td>
+									id="CLO1forPLO08" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO1forPLO9" disabled="disabled" /></td>
+									id="CLO1forPLO09" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO1forPLO10" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
@@ -370,23 +376,23 @@
 							<tr>
 								<td class="first-columns-attribute">CLO2</td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO1" disabled="disabled" /></td>
+									id="CLO2forPLO01" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO2" disabled="disabled" /></td>
+									id="CLO2forPLO02" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO3" disabled="disabled" /></td>
+									id="CLO2forPLO03" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO4" disabled="disabled" /></td>
+									id="CLO2forPLO04" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO5" disabled="disabled" /></td>
+									id="CLO2forPLO05" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO6" disabled="disabled" /></td>
+									id="CLO2forPLO06" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO7" disabled="disabled" /></td>
+									id="CLO2forPLO07" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO8" disabled="disabled" /></td>
+									id="CLO2forPLO08" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO2forPLO9" disabled="disabled" /></td>
+									id="CLO2forPLO09" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO2forPLO10" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
@@ -399,23 +405,23 @@
 							<tr>
 								<td class="first-columns-attribute">CLO3</td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO1" disabled="disabled" /></td>
+									id="CLO3forPLO01" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO2" disabled="disabled" /></td>
+									id="CLO3forPLO02" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO3" disabled="disabled" /></td>
+									id="CLO3forPLO03" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO4" disabled="disabled" /></td>
+									id="CLO3forPLO04" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO5" disabled="disabled" /></td>
+									id="CLO3forPLO05" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO6" disabled="disabled" /></td>
+									id="CLO3forPLO06" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO7" disabled="disabled" /></td>
+									id="CLO3forPLO07" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO8" disabled="disabled" /></td>
+									id="CLO3forPLO08" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
-									id="CLO3forPLO9" disabled="disabled" /></td>
+									id="CLO3forPLO09" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO3forPLO10" disabled="disabled" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
@@ -464,16 +470,22 @@
 							type="text" placeholder="" id="text-32c5" name="text-5"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
-					<div class="u-form-group u-label-left u-form-group-10">
-						<label for="slt-dist-table"
-							class="u-label u-spacing-75 u-label-10">SLT Distribution</label>
+
+					<div class="u-form-group u-label-left u-form-group-11">
+						<label for="text-c8be" class="u-label u-spacing-75 u-label-11">SLT
+							Distribution</label> <input value="${course.courseSLTDist}" type="hidden"
+							id="text-c8be" name="text-6">
 						<table id="slt-dist-table" class="attribute-8-9-table">
 							<colgroup>
 								<col width="200%" span="16" style="background-color: #eaeaea" />
 							</colgroup>
 							<tr>
 								<td class="first-columns-attribute" rowspan='4' colspan='2'>Course
-									Content Outline and Subtopics</td>
+									Content <br> Outline and Subtopics <br> <br> <a
+									id="hideOrShowRows"
+									href="javascript:collapseExpandTosletRows()">Show/Hide All
+								</a>
+								</td>
 								<td class="first-columns-attribute" rowspan='4' colspan='1'>CLO*</td>
 								<td class="first-columns-attribute" rowspan='1' colspan='9'>Learning
 									and Teaching Activities**</td>
@@ -482,11 +494,15 @@
 							</tr>
 							<tr>
 								<td rowspan='1' colspan='8'>Face-To-Face (F2F)</td>
-								<td rowspan='3' colspan='1'>Non Face-To-Face (NF2F)</td>
+								<td rowspan='3' colspan='1'>Non Face-To-Face <br>
+									(NF2F) <br> (Asynchronous)
+								</td>
 							</tr>
 							<tr>
-								<td rowspan='1' colspan='4'>row3 column4</td>
-								<td rowspan='1' colspan='4'>row3 column8</td>
+								<td rowspan='1' colspan='4'>Physical</td>
+								<td rowspan='1' colspan='4'>Online/Technology <br>
+									mediated (Synchronous)
+								</td>
 							</tr>
 							<tr>
 								<td>L</td>
@@ -498,44 +514,120 @@
 								<td>P</td>
 								<td>O</td>
 							</tr>
+							<c:set var="i" value="1" />
+							<c:forEach items="${course.courseSLTDist2}" var="toslet">
+								<tr class="toslet-collapsable">
+									<td colspan="2"><textarea readonly
+											class="sltdist-topic" name="outline${i}"
+											oninput="auto_grow(this)" placeholder="${i})"
+											id="outline-topic${i}">${toslet.outline}</textarea></td>
+									<td><input readonly value="${toslet.clo}" type="text"
+										name="clo${i}" size="3"></td>
+									<td><input readonly value="${toslet.plhour}" type="number"
+										name="pl-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.pthour}" type="number"
+										name="pt-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.pphour}" type="number"
+										name="pp-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.pohour}" type="number"
+										name="po-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.olhour}" type="number"
+										name="ol-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.othour}" type="number"
+										name="ot-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.ophour}" type="number"
+										name="op-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.oohour}" type="number"
+										name="oo-hour${i}" size="3"></td>
+									<td><input readonly value="${toslet.nf2fhour}"
+										type="number" name="nf2f-hour${i}" size="12"></td>
+								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
+							</c:forEach>
 							<tr>
-								<td>row5 column1</td>
-								<td>row5 column2</td>
-								<td>row5 column3</td>
-								<td>row5 column4</td>
-								<td>row5 column5</td>
-								<td>row5 column6</td>
-								<td>row5 column7</td>
-								<td>row5 column8</td>
-								<td>row5 column9</td>
-								<td>row5 column10</td>
-								<td>row5 column11</td>
-								<td>row5 column12</td>
-								<td>row5 column13</td>
+								<td style="text-align: right" colspan="12">Subtotal SLT:</td>
+								<td> <c:out value="${course.totalToslet}"/> </td>
 							</tr>
-							<tr>
-								<td>row6 column1</td>
-								<td>row6 column2</td>
-								<td>row6 column3</td>
-								<td>row6 column4</td>
-								<td>row6 column5</td>
-								<td>row6 column6</td>
-								<td>row6 column7</td>
-								<td>row6 column8</td>
-								<td>row6 column9</td>
-								<td>row6 column10</td>
-								<td>row6 column11</td>
-								<td>row6 column12</td>
-								<td>row6 column13</td>
-							</tr>
-						</table>
-					</div>
 
-					<div class="u-form-group u-label-left u-form-group-11">
-						<label for="text-c8be" class="u-label u-spacing-75 u-label-11">SLT
-							Distribution</label> <input readonly value="${course.courseSLTDist}"
-							type="text" placeholder="" id="text-c8be" name="text-6"
-							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
+							<!--[COLUMNS] CONTINOUS ASSESSMENT AND SLT ROWS -->
+							<tr>
+								<td class="first-columns-attribute" rowspan='2' colspan='2'>Continous
+									<br> Assessments <br> <br> <a
+									id="hideOrShowRows" href="javascript:collapseExpandCasRows()">Show/Hide
+										All </a>
+								</td>
+								<td class="first-columns-attribute" rowspan='2' colspan='1'>%</td>
+								<td class="first-columns-attribute" rowspan='1' colspan='8'>Face-to-Face(F2F)</td>
+								<td class="first-columns-attribute" rowspan='2' colspan='1'>NF2F</td>
+							</tr>
+							<tr>
+								<td class="first-columns-attribute" colspan='4'>Physical</td>
+								<td class="first-columns-attribute" colspan='4'>Online/Technology
+									Mediated</td>
+							</tr>
+
+							<!--[VALUES] CONTINOUS ASSESSMENT AND SLT ROWS -->
+							
+							<c:set var="i" value="1"/>
+							<c:forEach items="${course.courseCasletDist}" var="caslet">
+								<tr class="cas-collapsable">
+									<td colspan="2"><input readonly type="text"
+										name="cas${i}" value="${caslet.asst}"><input readonly name="cas${i}" type="hidden"
+										value="${caslet.asstId}"></td>
+									<td><input readonly type="number" name="cas${i}" value="${caslet.weightage}"></td>
+									<td colspan="4"><input readonly type="number" name="cas${i}" value="${caslet.phour}"></td>
+									<td colspan="4"><input readonly type="number" name="cas${i}" value="${caslet.ohour}"></td>
+									<td><input readonly type="number" name="cas${i}" value="${caslet.nf2fhour}"></td>
+								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
+							</c:forEach>
+
+							<tr>
+								<td style="text-align: right" colspan="12">Subtotal SLT:</td>
+								<td> <c:out value="${course.totalCaslet}"/> </td>
+							</tr>
+
+							<!--[COLUMNS] FINAL ASSESSMENT AND SLT ROWS -->
+							<tr>
+								<td class="first-columns-attribute" rowspan='2' colspan='2'>Final
+									<br> Assessments <br> <br> <a
+									id="hideOrShowRows" href="javascript:collapseExpandFasRows()">Show/Hide
+										All </a>
+								</td>
+								<td class="first-columns-attribute" rowspan='2' colspan='1'>%</td>
+								<td class="first-columns-attribute" rowspan='1' colspan='8'>Face-to-Face(F2F)</td>
+								<td class="first-columns-attribute" rowspan='2' colspan='1'>NF2F</td>
+							</tr>
+							<tr>
+								<td class="first-columns-attribute" colspan='4'>Physical</td>
+								<td class="first-columns-attribute" colspan='4'>Online/Technology
+									Mediated</td>
+							</tr>
+							<!-- [VALUES] FINAL ASSESSMENT AND SLT ROWS -->
+							<c:set var="i" value="1"/>
+							<c:forEach items="${course.courseFasletDist}" var="faslet">
+								<tr class="fas-collapsable">
+									<td colspan="2"><input readonly placeholder="${i})" type="text"
+										name="fas${i}" value="${faslet.asst}"><input readonly name="fas${i}" type="hidden"
+										value="${faslet.asstId}"></td>
+									<td><input readonly type="number" name="fas${i}" value="${faslet.weightage}"></td>
+									<td colspan="4"><input readonly type="number" name="fas${i}" value="${faslet.phour}"></td>
+									<td colspan="4"><input readonly type="number" name="fas${i}" value="${faslet.ohour}"></td>
+									<td><input readonly type="number" name="fas${i}" value="${faslet.nf2fhour}"></td>
+								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
+							</c:forEach>
+							<tr>
+								<td style="text-align: right" colspan="12"> Subtotal SLT: </td>
+								<td> <c:out value="${course.totalFaslet}"/> </td>
+							</tr>
+							<tr>
+								<td style="text-align: right" colspan="12"> Grand Total SLT: </td>
+								<td> <c:out value="${course.grandTotalSLT}"/> </td>
+							</tr>
+
+
+						</table>
 					</div>
 					<div class="u-form-group u-label-left u-form-group-12">
 						<label for="text-47cc" class="u-label u-spacing-75 u-label-12">Special
@@ -588,55 +680,190 @@
 
 	</section>
 
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
+	<!-- The Permission Modal -->
+	<div id="permission-modal" class="modal">
 
-		<!-- Modal content -->
-		
+		<!-- Permission Modal content -->
+
 		<div class="modal-content">
 			<span class="close">&times;</span>
-			
-			<p>Some text in the Modal..</p>
-			
+
+			<h5 class="u-text u-text-default u-text-2">Modifying Course
+				Information</h5>
+			<hr>
+			<p class="u-text u-text-default u-text-2" id="">
+				You have Permission after a Head of Programme had approved a request
+				you made before. <span><a
+					href="javascript:showCreateRequest();">Create a new request </a> to
+					modify the information of this course, or, </span>
+			</p>
+			<p class="u-text u-text-default u-text-2">
+				Choose a Permission for <i>${course.courseName}</i> that you have.
+			</p>
+			<form action="${request.contextPath}/COSMAS/request" method="post">
+				<input type="hidden" value="${course.courseCode}" name="courseCode">
+				<input type="hidden" value="${courseCodeOld}" name="courseCodeOld">
+
+				<select name="permission">
+					<option>Select One</option>
+					<c:forEach items="${requestList}" var="req">
+						<option value="${req.requestId}">[${req.requestId}]
+							${req.requestAction} ${req.courseCode} by ${req.userId}</option>
+					</c:forEach>
+				</select> <br> <br>
+				<button type="submit" name="command" value="use-permission">Next</button>
+			</form>
+		</div>
+
+	</div>
+
+	<!-- The Create Request Modal -->
+	<div id="create-request-modal" class="modal">
+
+		<!-- Create Request Modal content -->
+
+		<div class="modal-content">
+			<span class="close">&times;</span>
+
+			<h5 class="u-text u-text-default u-text-2">Create New Request</h5>
+			<hr>
+			<div class="u-form u-form-1">
+				<form action="${request.contextPath}/COSMAS/request">
+
+					<table>
+
+						<tr>
+							<td><label for="course-code">Course: </label></td>
+							<td><p id="course-code">${course.courseCode}
+									${course.courseName}</p></td>
+						</tr>
+						<tr>
+							<td><label for="request-action">Action: </label></td>
+							<td><select id="request-action" name="requestAction">
+									<option value="edit">EDIT</option>
+									<option value="delete">DELETE</option>
+							</select></td>
+						</tr>
+
+						<tr>
+							<td><label for="request-message">Message: </label></td>
+							<td><textarea id="request-message" name="requestMessage"></textarea></td>
+						</tr>
+
+					</table>
+					<br> <input type="reset"> <input type="submit"
+						name="command" value="Submit"> <br> <input
+						id="request-date" name="requestMadeOn" type="hidden" value="now">
+
+				</form>
+			</div>
+
 		</div>
 
 	</div>
 
 	<script>
 		//Get the modal
-		var modal = document.getElementById("myModal");
+		var permissionModal = document.getElementById("permission-modal");
+		var createRequestModal = document
+				.getElementById("create-request-modal");
+		var span = document.querySelectorAll(".close");
 
-		// Get the button that opens the modal
-		var permissionbtn = document.getElementById("permission-btn");
+		function showPermission() {
+			permissionModal.style.display = "block";
+		}
 
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		// When the user clicks the button, open the modal 
-		function showModal() {
-			modal.style.display = "block";
+		function hidePermission() {
+			permissionModal.style.display = "none";
 		}
 
 		function checkUserRole() {
 			var userRole = "${loggedIn.userRole}"
-			var message = "&#9888; Only a Head of Programme is allowed for this action. <span><a href='javascript:showModal();'>I have Permission.</a></span>";
+			var message = "&#9888; Only a Head of Programme is allowed for this action. <span><a href='javascript:showPermission();'>I have Permission.</a></span>";
 			var messageTimeout;
 
 			if (userRole != "Head of Programme") {
 				document.getElementById("notAllowedMessage").innerHTML = message;
 				event.preventDefault();
+
 			}
 		}
 
+		function showCreateRequest() {
+			hidePermission();
+			createRequestModal.style.display = "block";
+		}
+
 		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-			modal.style.display = "none";
+		span[0].onclick = function() {
+			permissionModal.style.display = "none";
+		}
+
+		span[1].onclick = function() {
+			createRequestModal.style.display = "none";
 		}
 
 		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
+			if (event.target == permissionModal
+					|| event.target == createRequestModal) {
+				permissionModal.style.display = "none";
+				createRequestModal.style.display = "none";
+			}
+		}
+
+		function retrieveRequestList() {
+			$
+					.get(
+							'${request.contextPath}/COSMAS/request?command=getRequests',
+							function(data) {
+								alert("Response " + data);
+							});
+
+		}
+		
+	</script>
+
+	<script>
+		
+		var i = 1;
+		var j = 1;
+		var k = 1;
+		function auto_grow(element) {
+			element.style.height = "5px";
+			element.style.height = (element.scrollHeight) + "px";
+		}
+		
+		function collapseExpandTosletRows() {
+			if (i%2 != 0) {
+				document.querySelectorAll(".toslet-collapsable").forEach(a=>a.style.display = "table-row");
+				i = i+1;
+			}
+			else {
+				document.querySelectorAll(".toslet-collapsable").forEach(a=>a.style.display = "none");
+				i = i-1;
+			}
+		}
+		
+		function collapseExpandCasRows() {
+			if (j%2 != 0) {
+				document.querySelectorAll(".cas-collapsable").forEach(a=>a.style.display = "table-row");
+				j = j+1;
+			}
+			else {
+				document.querySelectorAll(".cas-collapsable").forEach(a=>a.style.display = "none");
+				j = j-1;
+			}
+		}
+		
+		function collapseExpandFasRows() {
+			if (k%2 != 0) {
+				document.querySelectorAll(".fas-collapsable").forEach(a=>a.style.display = "table-row");
+				k = k+1;
+			}
+			else {
+				document.querySelectorAll(".fas-collapsable").forEach(a=>a.style.display = "none");
+				k = k-1;
 			}
 		}
 	</script>

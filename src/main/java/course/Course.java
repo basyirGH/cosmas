@@ -3,7 +3,9 @@ package course;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Course {
+import javax.sql.rowset.serial.SerialBlob;
+
+public class Course implements java.io.Serializable{
 
 	private String courseCode;
 	private String courseName;
@@ -24,11 +26,52 @@ public class Course {
 	private ArrayList<String> MQFLOforPLO = new ArrayList<String>();
 	private String courseTransSkills;
 	private String courseSLTDist;
-	private ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> courseSLTDist2;
+	private ArrayList<TopicAndSLT> courseSLTDist2;
+	private ArrayList<CASAndSLT> courseCasletDist;
+	private ArrayList<FASAndSLT> courseFasletDist;
 	private String courseSpecialReq;
 	private String courseReferences;
 	private String courseOtherInfo;
 	private String courseDatesApproval;
+	private int totalToslet;
+	private int totalCaslet;
+	private int totalFaslet;
+	private int grandTotalSLT;
+	
+	
+	
+
+	public int getGrandTotalSLT() {
+		return grandTotalSLT;
+	}
+
+	public void setGrandTotalSLT(int grandTotalSLT) {
+		this.grandTotalSLT = grandTotalSLT;
+	}
+
+	public int getTotalToslet() {
+		return totalToslet;
+	}
+
+	public void setTotalToslet(int totalToslet) {
+		this.totalToslet = totalToslet;
+	}
+
+	public int getTotalCaslet() {
+		return totalCaslet;
+	}
+
+	public void setTotalCaslet(int totalCaslet) {
+		this.totalCaslet = totalCaslet;
+	}
+
+	public int getTotalFaslet() {
+		return totalFaslet;
+	}
+
+	public void setTotalFaslet(int totalFaslet) {
+		this.totalFaslet = totalFaslet;
+	}
 
 	public String getCourseCode() {
 		return courseCode;
@@ -182,11 +225,11 @@ public class Course {
 		this.courseSLTDist = courseSLTDist;
 	}
 
-	public ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> getCourseSLTDist2() {
+	public ArrayList<TopicAndSLT> getCourseSLTDist2() {
 		return courseSLTDist2;
 	}
 
-	public void setCourseSLTDist2(ArrayList<HashMap<String, ArrayList<HashMap<String, Float>>>> courseSLTDist2) {
+	public void setCourseSLTDist2(ArrayList<TopicAndSLT> courseSLTDist2) {
 		this.courseSLTDist2 = courseSLTDist2;
 	}
 
@@ -221,5 +264,24 @@ public class Course {
 	public void setCourseDatesApproval(String courseDatesApproval) {
 		this.courseDatesApproval = courseDatesApproval;
 	}
+
+	public ArrayList<CASAndSLT> getCourseCasletDist() {
+		return courseCasletDist;
+	}
+
+	public void setCourseCasletDist(ArrayList<CASAndSLT> courseCasletDist) {
+		this.courseCasletDist = courseCasletDist;
+	}
+
+	public ArrayList<FASAndSLT> getCourseFasletDist() {
+		return courseFasletDist;
+	}
+
+	public void setCourseFasletDist(ArrayList<FASAndSLT> courseFasletDist) {
+		this.courseFasletDist = courseFasletDist;
+	}
+	
+	
+	
 
 }

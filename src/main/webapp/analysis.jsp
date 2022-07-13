@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -10,11 +11,20 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Courses</title>
+<title>Course Analysis</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Courses.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
 <script class="u-script" type="text/javascript" src="cosmas.js" defer=""></script>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+	crossorigin="anonymous"></script>
 
 <meta name="generator" content="Nicepage 4.2.6, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
@@ -28,22 +38,32 @@
 		"name": "",
 		"logo": "images/templogo2.jpg"
 }</script>
-<script>
-	function checkUserRole() {
-		let userRole = "${loggedIn.userRole}"
-		let message = "&#9888; Only a Head of Programme is allowed for this action. <span><a href='home.jsp'>I have Permission.</a></span>";
-		let messageTimeout;
 
-		if (userRole === "Head of Programme") {
-			window.location.href = "add-new-course.jsp";
-		} else {
-			document.getElementById("notAllowedMessage").innerHTML = message;
-		}
-	}
-</script>
 <style>
+.vis-picker {
+	border: 1px solid black;
+	border-radius: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
 #notAllowedMessage {
 	color: orange;
+}
+
+.iframe-container {
+	overflow: hidden;
+	padding-top: 56.25%; /* 16:9 */
+	position: relative;
+}
+
+.iframe-container iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
 }
 </style>
 
@@ -117,74 +137,103 @@
 	</header>
 	<section class="u-align-center u-clearfix u-section-1" id="sec-5ad4">
 		<div class="u-clearfix u-sheet u-sheet-1">
-			<form action="${request.contextPath}/COSMAS/user"
-				method="post">
+			<form action="${request.contextPath}/COSMAS/user" method="post">
 				<h5 style="color: #5085BA" class="u-text u-text-default u-text-1">
 					<a><input type="submit" name="command" value="Home"
 						class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
-					<span style="color: black"> > Courses </span>
+					<span style="color: black"> > Analysis </span>
 				</h5>
 			</form>
-			<h4 class="u-text u-text-default u-text-2">
-				<a onclick="javascript:checkUserRole()"
-					class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1"
-					href="#" data-page-id="13610887"><span
-					class="u-file-icon u-icon u-icon-1"><img
-						src="images/1237946.png" alt=""></span>&nbsp; &nbsp;Add New Course
-				</a>
-			</h4>
-			<p class="u-text u-text-default u-text-2" id="notAllowedMessage"></p>
-			<h3 class="u-text u-text-default u-text-3">
-				<span class="u-file-icon u-icon u-icon-2"><img
-					src="images/482631.png" alt=""></span>&nbsp;Ctrl + F
-			</h3>
-			<div class="u-expanded-width u-table u-table-responsive u-table-1">
-				<table class="u-table-entity u-table-entity-1">
-					<colgroup>
-						<col width="7.3%">
-						<col width="42.8%">
-						<col width="25%">
-						<col width="24.900000000000006%">
-					</colgroup>
-					<thead class="u-black u-table-header u-table-header-1">
-						<tr style="height: 26px;">
-							<th class="u-border-1 u-border-black u-table-cell"></th>
-							<th class="u-border-1 u-border-black u-table-cell">Name</th>
-							<th class="u-border-1 u-border-black u-table-cell">Code</th>
-							<th class="u-border-1 u-border-black u-table-cell">Credit
-								Value</th>
-						</tr>
-					</thead>
-					<tbody class="u-table-body">
-						<c:forEach items="${courseList}" var="course">
-							<tr style="height: 75px;">
-								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-								</td>
-								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-									<form id="view-course-form"
-										action="${request.contextPath}/COSMAS/course"
-										method="post">
-										<input id="submit-course-code" type="hidden"
-											value="${course.courseCode}" name="courseCode"> <a
-											><input
-											id="submit-view-course" type="submit"
-											value="${course.courseName}" name="command"
-											class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-none u-text-palette-1-base u-btn-1"></a>
-									</form>
-								</td>
-								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${course.courseCode}</td>
-								<td
-									class="u-border-2 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">${course.courseCredit}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<h4 class="u-text u-text-default u-text-2">Course Analysis</h4>
+
+
+			<table style="width: 100%">
+				<tr style="text-align: left; padding-top: 0%;">
+					<td style="width: 30%; vertical-align: top">
+
+						<div class="vis-picker">
+							<p class="u-text u-text-default u-text-2">Choose one to view.</p>
+							<br>
+							<div class="form-check">
+								<input onclick="getPLOCountChartView()" class="form-check-input"
+									type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">
+									PLOs Count Chart </label>
+							</div>
+
+							<div class="form-check">
+								<input class="form-check-input" type="radio"
+									name="flexRadioDefault" id="flexRadioDefault3"> <label
+									class="form-check-label" for="flexRadioDefault3">
+									Student Learning Time Distribution By Topic and Mode For Course
+									<select style="width: 200px;">
+										<option>select a course</option>
+										<c:forEach items="${courseList}" var="course">
+											<option onclick="getTosletChartView('${course.courseCode}')"
+												value="${course.courseCode}">${course.courseCode}-
+												${course.courseName}</option>
+										</c:forEach>
+								</select>
+								</label>
+							</div>
+
+							<div class="form-check">
+								<input onclick="getCAPMatrixView()" class="form-check-input"
+									type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+								<label class="form-check-label" for="flexRadioDefault2">
+									Courses And PLOs Matrix </label>
+							</div>
+
+							<div class="form-check">
+								<input onclick="getSLTMatrixView()" class="form-check-input"
+									type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+								<label class="form-check-label" for="flexRadioDefault4">
+									Courses And SLTs Matrix </label>
+							</div>
+
+
+
+							<br>
+						</div>
+						<div class="vis-picker">
+							<p id="current-vis-desc">The different proportions of all eleven Program Learning Outcomes 
+							across all courses registered in COSMAS are displayed. From the chart, you can easily identify what most courses
+							have as their respective PLOs.</p>
+						</div>
+					</td>
+					<td style="width: 70%">
+						<div class="vis-picker">
+							<div class="iframe-container">
+								<iframe id="chart-container"> </iframe>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</section>
+
+	<script>
+		function getPLOCountChartView() {
+			document.getElementById("chart-container").src = "${request.contextPath}/COSMAS/analysis?type=plo-count-chart";
+		}
+
+		function getCAPMatrixView() {
+			document.getElementById("chart-container").src = "${request.contextPath}/COSMAS/analysis?type=cap-matrix";
+		}
+
+		function getTosletChartView(courseCode) {
+			document.getElementById("chart-container").src = "${request.contextPath}/COSMAS/analysis?type=toslet-chart&courseCode="
+					+ courseCode;
+			document.getElementById("flexRadioDefault3").checked = true;
+		}
+		
+		function getSLTMatrixView() {
+			document.getElementById("chart-container").src = "${request.contextPath}/COSMAS/analysis?type=slt-matrix";
+		}
+	</script>
+
+
 
 	<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer"
 		id="sec-835c">
@@ -194,121 +243,9 @@
 		</div>
 	</footer>
 
-	<section
-		class="u-black u-clearfix u-container-style u-dialog-block u-opacity u-opacity-70 u-section-9"
-		id="carousel_a51f">
-		<div class="u-container-style u-dialog u-white u-dialog-1">
-			<div class="u-container-layout u-container-layout-1">
-				<h4 class="u-text u-text-default u-text-1">Last Modified of
-					"CSF3107 SMART SYSTEM"</h4>
-				<div class="u-form u-form-1">
-					<form action="#" method="POST"
-						class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"
-						source="custom" name="form" style="padding: 10px;">
-						<div class="u-form-group u-form-name u-label-left">
-							<label for="name-8f37" class="u-label u-spacing-0 u-label-1">Action</label>
-							<input type="text" id="name-8f37" name="name"
-								class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-input-1"
-								required="">
-						</div>
-						<div class="u-form-group u-label-left">
-							<label for="email-8f37" class="u-label u-spacing-0 u-label-2">Date</label>
-							<input type="text" id="email-8f37" name="email"
-								class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-input-2"
-								required="required">
-						</div>
-						<div class="u-form-group u-label-left">
-							<label for="message-8f37" class="u-label u-spacing-0 u-label-3">Modified
-								by</label> <input rows="4" cols="50" id="message-8f37" name="message"
-								class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-input-3"
-								required="required" type="text">
-						</div>
-						<div class="u-form-group u-label-left u-form-group-4">
-							<label for="text-61a5" class="u-label u-spacing-0 u-label-4">Permitted
-								By</label> <input type="text" placeholder="" id="text-61a5" name="text"
-								class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-input-4">
-						</div>
-						<div class="u-form-group u-label-left u-form-group-5">
-							<label for="text-5dd9" class="u-label u-spacing-0 u-label-5">Permitted
-								On</label> <input type="text" placeholder="" id="text-5dd9"
-								name="text-1"
-								class="u-border-1 u-border-grey-30 u-grey-10 u-input u-input-rectangle u-input-5">
-						</div>
-						<div class="u-align-left u-form-group u-form-submit">
-							<a href="#" class="u-btn u-btn-submit u-button-style">Done</a> <input
-								type="submit" value="submit" class="u-form-control-hidden">
-						</div>
-						<div class="u-form-send-message u-form-send-success">Thank
-							you! Your message has been sent.</div>
-						<div class="u-form-send-error u-form-send-message">Unable to
-							send your message. Please fix errors then try again.</div>
-						<input type="hidden" value="" name="recaptchaResponse">
-					</form>
-				</div>
-				<div class="u-list u-list-1">
-					<div class="u-repeater u-repeater-1">
-						<div
-							class="u-container-style u-custom-item u-list-item u-repeater-item">
-							<div
-								class="u-container-layout u-similar-container u-container-layout-2">
-								<a href="#carousel_d49a"
-									class="u-align-center u-border-1 u-border-active-palette-2-base u-border-hover-palette-1-base u-btn u-button-style u-dialog-link u-hover-feature u-none u-text-palette-1-base u-btn-2"><span
-									class="u-file-icon u-icon u-icon-1" data-animation-name=""
-									data-animation-duration="0" data-animation-delay="0"
-									data-animation-direction=""><img
-										src="images/7249332.png" alt=""></span>&nbsp;<br>Download
-									Entire&nbsp;<br>Modification Log for This Course </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<button class="u-dialog-close-button u-icon u-text-grey-40 u-icon-2">
-				<svg class="u-svg-link" preserveAspectRatio="xMidYMin slice"
-					viewBox="0 0 16 16" style="">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink"
-						xlink:href="#svg-efe9"></use></svg>
-				<svg xmlns="http://www.w3.org/2000/svg"
-					xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-					xml:space="preserve" class="u-svg-content" viewBox="0 0 16 16"
-					x="0px" y="0px" id="svg-efe9">
-					<rect x="7" y="0"
-						transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)"
-						width="2" height="16"></rect>
-					<rect x="0" y="7"
-						transform="matrix(0.7071 -0.7071 0.7071 0.7071 -3.3138 8.0002)"
-						width="16" height="2"></rect></svg>
-			</button>
-		</div>
-		
-		<script>
-		
-		function retrieveRequestList() {
-			$.get('${request.contextPath}/COSMAS/request?command=getRequests',
-				function(data) {
-					alert("Response " + data);
-				});
 
-		}
-		</script>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<style class="u-block-2a9b-30 u-state-style">
+
+	<style class="u-block-2a9b-30 u-state-style">
 .u-block-2a9b-30:not([data-block-selected]):not([data-cell-selected]),
 	.u-block-2a9b-30:not([data-block-selected]):not([data-cell-selected]):before
 	{
@@ -330,7 +267,7 @@
 		var(- -grey-50-b), 1) !important
 }
 </style>
-		<style class="u-btn-2 u-state-style">
+	<style class="u-btn-2 u-state-style">
 .u-section-9 .u-btn-2, .u-section-9 .u-btn-2:before {
 	transition-property: fill, color, background-color, stroke-width,
 		border-style, border-width, box-shadow, text-shadow, opacity,
@@ -349,7 +286,7 @@
 		var(- -grey-50-b), 1) !important
 }
 </style>
-		<style class="u-block-2a9b-31 u-state-style">
+	<style class="u-block-2a9b-31 u-state-style">
 .u-block-2a9b-31:not([data-block-selected]):not([data-cell-selected]),
 	.u-block-2a9b-31:not([data-block-selected]):not([data-cell-selected]):before
 	{

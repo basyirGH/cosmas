@@ -9,7 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
-<title>Add New Course</title>
+<title>Add New Course From Excel</title>
 <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="Add-New-Course.css" media="screen">
 <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -164,20 +164,22 @@
 					source="custom" name="form" style="padding: 10px;">
 					<div class="u-form-group u-form-name u-label-left">
 						<label for="name-2b64" class="u-label u-spacing-75 u-label-1">Course
-							Name</label> <input type="text" id="name-2b64" name="courseName"
+							Name</label> <input value="${course.courseName}" type="text"
+							id="name-2b64" name="courseName"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white"
 							required="">
 					</div>
 					<div class="u-form-email u-form-group u-label-left u-form-group-2">
 						<label for="email-2b64" class="u-label u-spacing-75 u-label-2">Course
-							Code</label> <input type="text" id="email-2b64" name="courseCode"
+							Code</label> <input value="${course.courseCode}" type="text"
+							id="email-2b64" name="courseCode"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white"
 							required="">
 					</div>
 					<div class="u-form-group u-label-left">
 						<label for="message-2b64" class="u-label u-spacing-75 u-label-3">Course
-							Classification</label> <input type="text" id="message-2b64"
-							name="courseClassification"
+							Classification</label> <input value="${course.courseClassification}"
+							type="text" id="message-2b64" name="courseClassification"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white"
 							required="">
 					</div>
@@ -185,7 +187,7 @@
 						class="u-form-group u-form-message u-label-left u-form-group-4">
 						<label for="text-46f2" class="u-label u-spacing-75 u-label-4">Synopsis</label>
 						<textarea placeholder="" id="text-46f2" name="courseSynopsis"
-							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-4"></textarea>
+							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-4">${course.courseSynopsis}</textarea>
 					</div>
 					<div
 						class="u-form-group u-form-textarea u-label-left u-form-group-5">
@@ -194,24 +196,25 @@
 						<textarea rows="4" cols="50" id="textarea-377c"
 							name="courseAcadStaff"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white"
-							required=""></textarea>
+							required="">${course.courseAcadStaff}</textarea>
 					</div>
 					<div class="u-form-group u-label-left u-form-group-6">
 						<label for="text-f70c" class="u-label u-spacing-75 u-label-6">Semester
-							and Year Offered</label> <input type="text" placeholder="" id="text-f70c"
+							and Year Offered</label> <input value="${course.courseSemYearOffered}"
+							type="text" placeholder="" id="text-f70c"
 							name="courseSemYearOffered"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-7">
 						<label for="text-2b51" class="u-label u-spacing-75 u-label-7">Credit
-							Value</label> <input type="text" placeholder="" id="text-2b51"
-							name="courseCredit"
+							Value</label> <input value="${course.courseCredit}" type="text"
+							placeholder="" id="text-2b51" name="courseCredit"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-8">
 						<label for="text-7fdf" class="u-label u-spacing-75 u-label-8">Pre-requisite/co-requisite
-							(if any)</label> <input type="text" placeholder="" id="text-7fdf"
-							name="coursePrerequisite"
+							(if any)</label> <input value="${course.coursePrerequisite}" type="text"
+							placeholder="" id="text-7fdf" name="coursePrerequisite"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-8">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-8">
@@ -219,7 +222,7 @@
 							Course Learning Outcomes (CLO) </label>
 						<textarea placeholder="" id="textarea-378"
 							name="courseLearningOutcomes"
-							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-8"></textarea>
+							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-8">${course.courseLearningOutcomes}</textarea>
 					</div>
 					<div class="u-form-group u-label-left u-form-group-8">
 						<label for="table-attr-8" class="u-label u-spacing-75 u-label-8">Mapping
@@ -269,9 +272,9 @@
 									id="CLO1forPLO10" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO1forPLO11" /></td>
-								<td><textarea name="TeachingMethodsForCLO1" id=""></textarea>
+								<td><textarea name="TeachingMethodsForCLO1" id="">${course.teachingMethodsForCLO1}</textarea>
 								</td>
-								<td><textarea name="AssessmentMethodsForCLO1" id=""></textarea>
+								<td><textarea name="AssessmentMethodsForCLO1" id="">${course.assessmentMethodsForCLO1}</textarea>
 								</td>
 							</tr>
 							<tr>
@@ -298,9 +301,9 @@
 									id="CLO2forPLO10" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO2forPLO11" /></td>
-								<td><textarea name="TeachingMethodsForCLO2" id=""></textarea>
+								<td><textarea name="TeachingMethodsForCLO2" id="">${course.teachingMethodsForCLO2}</textarea>
 								</td>
-								<td><textarea name="AssessmentMethodsForCLO2" id=""></textarea>
+								<td><textarea name="AssessmentMethodsForCLO2" id="">${course.assessmentMethodsForCLO2}</textarea>
 								</td>
 							</tr>
 							<tr>
@@ -327,9 +330,9 @@
 									id="CLO3forPLO10" /></td>
 								<td><input type="checkbox" name="mainMappingTable"
 									id="CLO3forPLO11" size="10" /></td>
-								<td><textarea name="TeachingMethodsForCLO3" id=""></textarea>
+								<td><textarea name="TeachingMethodsForCLO3" id="">${course.teachingMethodsForCLO3}</textarea>
 								</td>
-								<td><textarea name="AssessmentMethodsForCLO3" id=""></textarea>
+								<td><textarea name="AssessmentMethodsForCLO3" id="">${course.assessmentMethodsForCLO3}</textarea>
 								</td>
 							</tr>
 							<tr>
@@ -369,8 +372,8 @@
 					<div class="u-form-group u-label-left u-form-group-10">
 
 						<label for="text-32c5" class="u-label u-spacing-75 u-label-10">Transferrable
-							Skills</label> <input type="text" placeholder="" id="text-32c5"
-							name="courseTransSkills"
+							Skills</label> <input value="${course.courseTransSkills}" type="text"
+							placeholder="" id="text-32c5" name="courseTransSkills"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-11">
@@ -386,8 +389,8 @@
 									Content <br> Outline and Subtopics <br> <br> <a
 									id="hideOrShowRows"
 									href="javascript:collapseExpandTosletRows()">Show/Hide All
-								</a> <br> <i>Please ensure all topic outlines begin <br>
-										with a label. <br>For example, 'Topic 2', or 'Lab 4'.
+								</a><br> <i>Please ensure all topic outlines begin <br>
+										with a label. <br>For example, 'Topic 2' or 'Lab 4'.
 								</i>
 								</td>
 								<td class="first-columns-attribute" rowspan='4' colspan='1'>CLO*</td>
@@ -420,60 +423,37 @@
 							</tr>
 
 							<!-- TOPIC AND SLT VALUES -->
-							<tr>
-								<td colspan="2"><textarea class="sltdist-topic"
-										name="topic1" oninput="auto_grow(this)" placeholder="1)"
-										id="outline-topic1"></textarea></td>
-								<td><input value="0" type="text" name=topic1 size="3"
-									id="clo-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="phy-l-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="phy-t-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="phy-p-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="phy-o-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="ol-l-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="ol-t-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="ol-p-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="3"
-									id="ol-o-topic1"></td>
-								<td><input value="0" type="number" name="topic1" size="12"
-									id="nf2f-topic1"></td>
-							</tr>
-							<c:forEach var="i" begin="2" end="20">
+							<c:set var="i" value="1" />
+							<c:forEach items="${course.courseSLTDist2}" var="toslet">
 								<tr class="toslet-collapsable">
 									<td colspan="2"><textarea class="sltdist-topic"
 											name="topic${i}" oninput="auto_grow(this)"
-											placeholder="${i})" id="outline-topic${i}"></textarea></td>
-									<td><input value="0" type="text" name="topic${i}" size="3"
-										id="clo-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="phy-l-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="phy-t-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="phy-p-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="phy-o-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="ol-l-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="ol-t-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="ol-p-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="3" id="ol-o-topic${i}"></td>
-									<td><input value="0" type="number" name="topic${i}"
-										size="12" id="nf2f-topic${i}"></td>
+											placeholder="${i})" id="outline-topic${i}">${toslet.outline}</textarea></td>
+									<td><input value="${toslet.clo}" type="text"
+										name="topic${i}" size="3" id="clo-topic${i}"></td>
+									<td><input value="${toslet.plhour}" type="number"
+										name="topic${i}" size="3" id="phy-l-topic${i}"></td>
+									<td><input value="${toslet.pthour}" type="number"
+										name="topic${i}" size="3" id="phy-t-topic${i}"></td>
+									<td><input value="${toslet.pphour}" type="number"
+										name="topic${i}" size="3" id="phy-p-topic${i}"></td>
+									<td><input value="${toslet.pohour}" type="number"
+										name="topic${i}" size="3" id="phy-o-topic${i}"></td>
+									<td><input value="${toslet.olhour}" type="number"
+										name="topic${i}" size="3" id="ol-l-topic${i}"></td>
+									<td><input value="${toslet.othour}" type="number"
+										name="topic${i}" size="3" id="ol-t-topic${i}"></td>
+									<td><input value="${toslet.ophour}" type="number"
+										name="topic${i}" size="3" id="ol-p-topic${i}"></td>
+									<td><input value="${toslet.oohour}" type="number"
+										name="topic${i}" size="3" id="ol-o-topic${i}"></td>
+									<td><input value="${toslet.nf2fhour}" type="number"
+										name="topic${i}" size="12" id="nf2f-topic${i}"></td>
 								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
 							</c:forEach>
 							<tr>
-								<td style="text-align: right" colspan="12">Subtotal SLT:</td>
+								<td style="text-align: right" colspan="12"></td>
 								<td></td>
 							</tr>
 
@@ -495,30 +475,43 @@
 							</tr>
 
 							<!--[VALUES] CONTINOUS ASSESSMENT AND SLT ROWS -->
-							<tr>
-								<td colspan="2"><input placeholder="1)" type="text"
-									name="cas1"></td>
-								<td><input value="0" type="number" name="cas1"></td>
-								<td colspan="4"><input value="0" type="number" name="cas1"></td>
-								<td colspan="4"><input value="0" type="number" name="cas1"></td>
-								<td><input value="0" type="number" name="cas1"></td>
-							</tr>
-
-							<c:forEach var="i" begin="2" end="5">
+							<c:set var="i" value="1" />
+							<c:forEach items="${course.courseCasletDist}" var="caslet">
 								<tr class="cas-collapsable">
-									<td colspan="2"><input placeholder="${i})" type="text"
-										name="cas${i}"></td>
-									<td><input value="0" type="number" name="cas${i}"></td>
-									<td colspan="4"><input value="0" type="number"
-										name="cas${i}"></td>
-									<td colspan="4"><input value="0" type="number"
-										name="cas${i}"></td>
-									<td><input value="0" type="number" name="cas${i}"></td>
+									<td colspan="2"><input type="text" name="cas${i}"
+										value="${caslet.asst}"><input name="" type="hidden"
+										value="${caslet.asstId}"></td>
+									<td><input type="number" name="cas${i}"
+										value="${caslet.weightage}"></td>
+									<td colspan="4"><input type="number" name="cas${i}"
+										value="${caslet.phour}"></td>
+									<td colspan="4"><input type="number" name="cas${i}"
+										value="${caslet.ohour}"></td>
+									<td><input type="number" name="cas${i}"
+										value="${caslet.nf2fhour}"></td>
 								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
 							</c:forEach>
+							<c:if test="${i <= 10}">
+								<c:forEach var="j" begin="${course.courseCasletDist.size() + 1}"
+									end="10">
+									<tr class="cas-collapsable">
+										<td colspan="2"><input type="text" name="cas${j}"
+											placeholder="${j})"><input name="" type="hidden"
+											value="0"></td>
+										<td><input type="number" name="cas${j}" value="0"></td>
+										<td colspan="4"><input type="number" name="cas${j}"
+											value="0"></td>
+										<td colspan="4"><input type="number" name="cas${j}"
+											value="0"></td>
+										<td><input type="number" name="cas${j}" value="0"></td>
+									</tr>
 
+								</c:forEach>
+							</c:if>
+							
 							<tr>
-								<td style="text-align: right" colspan="12">Subtotal SLT:</td>
+								<td style="text-align: right" colspan="12"></td>
 								<td></td>
 							</tr>
 
@@ -539,54 +532,69 @@
 									Mediated</td>
 							</tr>
 							<!-- [VALUES] FINAL ASSESSMENT AND SLT ROWS -->
-							<tr>
-								<td colspan="2"><input placeholder="1)" type="text"
-									name="fas1"></td>
-								<td><input value="0" type="number" name="fas1"></td>
-								<td colspan="4"><input value="0" type="number" name="fas1"></td>
-								<td colspan="4"><input value="0" type="number" name="fas1"></td>
-								<td><input value="0" type="number" name="fas1"></td>
-							</tr>
-
-							<c:forEach var="i" begin="2" end="5">
+							<c:set var="i" value="1" />
+							<c:forEach items="${course.courseFasletDist}" var="faslet">
 								<tr class="fas-collapsable">
 									<td colspan="2"><input placeholder="${i})" type="text"
-										name="fas${i}"></td>
-									<td><input value="0" type="number" name="fas${i}"></td>
-									<td colspan="4"><input value="0" type="number"
-										name="fas${i}"></td>
-									<td colspan="4"><input value="0" type="number"
-										name="fas${i}"></td>
-									<td><input value="0" type="number" name="fas${i}"></td>
+										name="fas${i}" value="${faslet.asst}"><input name=""
+										type="hidden" value="${faslet.asstId}"></td>
+									<td><input type="number" name="fas${i}"
+										value="${faslet.weightage}"></td>
+									<td colspan="4"><input type="number" name="fas${i}"
+										value="${faslet.phour}"></td>
+									<td colspan="4"><input type="number" name="fas${i}"
+										value="${faslet.ohour}"></td>
+									<td><input type="number" name="fas${i}"
+										value="${faslet.nf2fhour}"></td>
 								</tr>
+								<c:set var="i" target="i" value="${i+1}" />
 							</c:forEach>
-							<tr>
-								<td style="text-align: right" colspan="12">Subtotal SLT:</td>
+
+							<c:if test="${i <= 5}">
+								<c:forEach var="j" begin="${course.courseFasletDist.size() + 1}"
+									end="5">
+									<tr class="fas-collapsable">
+										<td colspan="2"><input type="text" name="fas${j}"
+											placeholder="${j})"><input name="" type="hidden"
+											value="0"></td>
+										<td><input type="number" name="fas${j}" value="0"></td>
+										<td colspan="4"><input type="number" name="fas${j}"
+											value="0"></td>
+										<td colspan="4"><input type="number" name="fas${j}"
+											value="0"></td>
+										<td><input type="number" name="fas${j}" value="0"></td>
+									</tr>
+
+								</c:forEach>
+							</c:if>
+
+								<td style="text-align: right" colspan="12"></td>
 								<td></td>
 							</tr>
 						</table>
 					</div>
 					<div class="u-form-group u-label-left u-form-group-12">
 						<label for="text-47cc" class="u-label u-spacing-75 u-label-12">Special
-							Requirements</label> <input type="text" placeholder="" id="text-47cc"
-							name="courseSpecialReq"
+							Requirements</label> <input value="${course.courseSpecialReq}"
+							type="text" placeholder="" id="text-47cc" name="courseSpecialReq"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-13">
 						<label for="text-fb22" class="u-label u-spacing-75 u-label-13">References</label>
 						<textarea rows="10" placeholder="" id="text-fb22"
 							name="courseReferences"
-							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white"></textarea>
+							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">${course.courseReferences}</textarea>
 					</div>
 					<div class="u-form-group u-label-left u-form-group-14">
 						<label for="text-fc68" class="u-label u-spacing-75 u-label-14">Other
-							info</label> <input type="text" id="text-fc68" name="courseOtherInfo"
+							info</label> <input value="${course.courseOtherInfo}" type="text"
+							id="text-fc68" name="courseOtherInfo"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white">
 					</div>
 					<div class="u-form-group u-label-left u-form-group-15">
 						<label for="text-e410" class="u-label u-spacing-75 u-label-15">Dates
-							of Approval</label> <input type="text" id="text-e410"
-							name="courseDatesApproval"
+							of Approval</label> <input value="${course.courseDatesApproval}"
+							type="text" id="text-e410" name="courseDatesApproval"
 							class="u-border-3 u-border-grey-30 u-input u-input-rectangle u-white u-input-15">
 					</div>
 					<!-- submit -->

@@ -64,7 +64,7 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <h3 class="u-text u-text-default u-text-1">Log In</h3>
         <div class="u-align-center u-form u-form-1">
-          <form action="${request.contextPath}/COSMAS/ControllerUser" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
+          <form action="${request.contextPath}/COSMAS/user" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;">
             <div class="u-form-email u-form-group">
               <label for="email-047e" class="u-label">Email Address</label>
               <input type="email" placeholder="Enter a valid email address" id="email-047e" name="userEmail" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
