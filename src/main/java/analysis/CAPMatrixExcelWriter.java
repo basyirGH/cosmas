@@ -27,7 +27,7 @@ import course.Course;
  * A flexible program that writes data to an Excel file in either XLSX or XLS
  * format, depending on the extension of the file.
  * 
- * @author www.codejava.net
+ * @author www.codejava.net modified by Mohamad Basyir bin Zainuddin
  *
  */
 public class CAPMatrixExcelWriter {
