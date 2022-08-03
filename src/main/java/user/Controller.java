@@ -11,7 +11,14 @@
 
 package user;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.ServerSocket;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.http.HttpRequest;
 import java.sql.*;
 import java.util.List;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +38,7 @@ public class Controller extends HttpServlet {
 		super();
 	}
 
-	protected void doCommand(HttpServletRequest request, HttpServletResponse response)
+	protected static void doCommand(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -70,11 +77,11 @@ public class Controller extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("log-in.jsp");
 				rd.forward(request, response);
 				System.out.println("please login first.");
-			} 
+			}
 		}
 	}
 
-	protected boolean idIsTaken(String id) throws SQLException, ServletException, IOException {
+	protected static boolean idIsTaken(String id) throws SQLException, ServletException, IOException {
 
 		DAO dao = new DAO();
 		List<String> idList = dao.getAllUserId();
@@ -89,7 +96,7 @@ public class Controller extends HttpServlet {
 
 	}
 
-	protected String generateRandom(int n) {
+	protected static String generateRandom(int n) {
 		String NumericString = "0123456789";
 		StringBuilder sb = new StringBuilder(n);
 		for (int i = 0; i < n; i++) {
@@ -105,7 +112,7 @@ public class Controller extends HttpServlet {
 		return sb.toString();
 	}
 
-	protected String getNewId(int n) throws SQLException, ServletException, IOException {
+	protected static String getNewId(int n) throws SQLException, ServletException, IOException {
 
 		String id = "USER";
 		id = id.concat(generateRandom(n));
@@ -118,7 +125,7 @@ public class Controller extends HttpServlet {
 
 	}
 
-	protected void signUpUser(HttpServletRequest request, HttpServletResponse response)
+	protected static void signUpUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 
 		String userEmail = request.getParameter("userEmail");
@@ -146,7 +153,7 @@ public class Controller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	protected void loginUser(HttpServletRequest request, HttpServletResponse response)
+	protected static void loginUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 
 		String tryEmail = request.getParameter("userEmail");
@@ -167,7 +174,7 @@ public class Controller extends HttpServlet {
 		}
 	}
 
-	protected void getUser(HttpServletRequest request, HttpServletResponse response)
+	protected static void getUser(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 
 		if (request.getSession() != null && request.getSession().getAttribute("isLoggedIn").equals(true)) {
@@ -185,17 +192,17 @@ public class Controller extends HttpServlet {
 		}
 	}
 
-	protected void logOut(HttpServletRequest request, HttpServletResponse response)
+	protected static void logOut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {
 
 		System.out.println("logging out..session id: " + request.getSession().getId());
 		request.getSession().invalidate();
-		
+
 		HttpSession session = request.getSession(true);
 		System.out.println("Creating new session...: " + session.getId());
 		RequestDispatcher rd = request.getRequestDispatcher("log-in.jsp");
 		rd.forward(request, response);
-		//getUser(request, response);
+		// getUser(request, response);
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
