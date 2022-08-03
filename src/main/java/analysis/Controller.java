@@ -65,13 +65,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.StandardChartTheme;
-import org.jfree.data.general.DefaultPieDataset;
 
-import com.googlecode.charts4j.Color;
 
 import analysis.DAO;
 import course.*;
