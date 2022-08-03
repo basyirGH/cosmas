@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS 
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar COSMAS.jar
